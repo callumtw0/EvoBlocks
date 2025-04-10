@@ -1,0 +1,136 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ArtifactsWorkspaceSettings\">\r\n    <artifacts-to-build>\r\n      <artifact name=\"EvoBlocks:jar\" />\r\n    </artifacts-to-build>\r\n  </component>\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"13e2aa5d-a325-4455-8d74-6cf7e5584772\" name=\"Changes\" comment=\"New project for dissertation with maven\">\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/artifacts/EvoBlocks_jar.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/LICENSE\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/README\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/Icon/cubes.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/Icon/favicon.ico\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/GUI_FX/BottomPanel.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/GUI_FX/BottomPanel.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/GUI_FX/Graphs/PercentageDiffGraph.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/GUI_FX/Graphs/PercentageDiffGraph.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/GUI_FX/HeuristicFeedbackPanel.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/GUI_FX/HeuristicParser.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/GUI_FX/HeuristicParser.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/GUI_FX/MainApp.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/GUI_FX/MainApp.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/GUI_FX/RightPanel.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/GUI_FX/RightPanel.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/GUI_FX/TopToolbar.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/GUI_FX/TopToolbar.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/GUI_FX/WorkspacePanel.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/GUI_FX/WorkspacePanel.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/MemeticAlgorithm/Tester.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/MemeticAlgorithm/Tester.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/Images/heuristic1.png\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/Images/heuristic2.png\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/Images/heuristic3.png\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/Images/local Search/GREEDY_DESCENT_LOCAL_SEARCH.png\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/Images/Local Search/GREEDY_DESCENT_LOCAL_SEARCH.png\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/Images/local Search/TWO_OPTION_LOCAL_SEARCH.png\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/Images/Local Search/TWO_OPTION_LOCAL_SEARCH.png\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MavenRunner\">\r\n    <option name=\"jreName\" value=\"21\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 5\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2uSKRw17LOQx2WXROIE4HBcbxQp\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.MainApp.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.RUN.executor&quot;: &quot;Run&quot;,\r\n    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,\r\n    &quot;Maven.EvoBlocks [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,\r\n    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;D:/Workspace/Java/IntelliJ/EvoBlocks/src/main/resources/Icon&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.runner&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Workspace\\Java\\IntelliJ\\EvoBlocks\\src\\main\\resources\\Icon\" />\r\n      <recent name=\"D:\\Workspace\\Java\\IntelliJ\\EvoBlocks\\src\\main\\java\\org\\example\" />\r\n      <recent name=\"D:\\Workspace\\Java\\IntelliJ\\EvoBlocks\\src\\main\\resources\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Workspace\\Java\\IntelliJ\\EvoBlocks\\src\\main\\resources\\Icon\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"RUN\" type=\"Application\" factoryName=\"Application\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"org.example.GUI_FX.MainApp\" />\r\n      <module name=\"EvoBlocks\" />\r\n      <option name=\"VM_PARAMETERS\" value=\"--module-path &quot;D:\\javafx-sdk-23.0.2\\lib&quot; --add-modules javafx.controls,javafx.fxml,javafx.graphics\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62\" />\r\n        <option value=\"bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"13e2aa5d-a325-4455-8d74-6cf7e5584772\" name=\"Changes\" comment=\"\" />\r\n      <created>1742236531888</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1742236531888</updated>\r\n      <workItem from=\"1742236532989\" duration=\"3129000\" />\r\n      <workItem from=\"1742239675711\" duration=\"468000\" />\r\n      <workItem from=\"1742240161844\" duration=\"5622000\" />\r\n      <workItem from=\"1742245868399\" duration=\"671000\" />\r\n      <workItem from=\"1742392323130\" duration=\"10013000\" />\r\n      <workItem from=\"1742492681069\" duration=\"760000\" />\r\n      <workItem from=\"1742743897179\" duration=\"42000\" />\r\n      <workItem from=\"1742747985211\" duration=\"711000\" />\r\n      <workItem from=\"1742820069681\" duration=\"2024000\" />\r\n      <workItem from=\"1743084117162\" duration=\"1287000\" />\r\n      <workItem from=\"1744213575169\" duration=\"912000\" />\r\n      <workItem from=\"1744292871174\" duration=\"3786000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"New project for dissertation with maven\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1742238410364</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1742238410364</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"New project for dissertation with maven\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"New project for dissertation with maven\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision c73dd206f6220020b83188786bc6e542d8b48a0e)
++++ b/.idea/workspace.xml	(date 1744299809337)
+@@ -9,30 +9,8 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="13e2aa5d-a325-4455-8d74-6cf7e5584772" name="Changes" comment="New project for dissertation with maven">
+-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/EvoBlocks_jar.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/README" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/Icon/cubes.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/Icon/favicon.ico" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++    <list default="true" id="13e2aa5d-a325-4455-8d74-6cf7e5584772" name="Changes" comment="Project updated for release">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/BottomPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/BottomPanel.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/Graphs/PercentageDiffGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/Graphs/PercentageDiffGraph.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/HeuristicFeedbackPanel.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/HeuristicParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/HeuristicParser.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/MainApp.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/RightPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/RightPanel.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/TopToolbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/TopToolbar.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/WorkspacePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/WorkspacePanel.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MemeticAlgorithm/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MemeticAlgorithm/Tester.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/heuristic1.png" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/heuristic2.png" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/heuristic3.png" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/local Search/GREEDY_DESCENT_LOCAL_SEARCH.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Local Search/GREEDY_DESCENT_LOCAL_SEARCH.png" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/local Search/TWO_OPTION_LOCAL_SEARCH.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Local Search/TWO_OPTION_LOCAL_SEARCH.png" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -54,32 +32,32 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;Application.MainApp.executor&quot;: &quot;Run&quot;,
+-    &quot;Application.RUN.executor&quot;: &quot;Run&quot;,
+-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+-    &quot;Maven.EvoBlocks [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
+-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;D:/Workspace/Java/IntelliJ/EvoBlocks/src/main/resources/Icon&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.runner&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Application.MainApp.executor": "Run",
++    "Application.RUN.executor": "Run",
++    "Downloaded.Files.Path.Enabled": "false",
++    "Maven.EvoBlocks [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
++    "Repository.Attach.Annotations": "false",
++    "Repository.Attach.JavaDocs": "false",
++    "Repository.Attach.Sources": "false",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "git-widget-placeholder": "main",
++    "kotlin-language-version-configured": "true",
++    "last_opened_file_path": "D:/Workspace/Java/IntelliJ/EvoBlocks/src/main/resources/Icon",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "project.structure.last.edited": "Artifacts",
++    "project.structure.proportion": "0.15",
++    "project.structure.side.proportion": "0.2",
++    "settings.editor.selected.configurable": "reference.settings.project.maven.runner",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="D:\Workspace\Java\IntelliJ\EvoBlocks\src\main\resources\Icon" />
+@@ -127,7 +105,7 @@
+       <workItem from="1742820069681" duration="2024000" />
+       <workItem from="1743084117162" duration="1287000" />
+       <workItem from="1744213575169" duration="912000" />
+-      <workItem from="1744292871174" duration="3786000" />
++      <workItem from="1744292871174" duration="5444000" />
+     </task>
+     <task id="LOCAL-00001" summary="New project for dissertation with maven">
+       <option name="closed" value="true" />
+@@ -137,7 +115,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1742238410364</updated>
+     </task>
+-    <option name="localTasksCounter" value="2" />
++    <task id="LOCAL-00002" summary="Project updated for release">
++      <option name="closed" value="true" />
++      <created>1744299096143</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1744299096143</updated>
++    </task>
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -145,6 +131,7 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="New project for dissertation with maven" />
+-    <option name="LAST_COMMIT_MESSAGE" value="New project for dissertation with maven" />
++    <MESSAGE value="Project updated for release" />
++    <option name="LAST_COMMIT_MESSAGE" value="Project updated for release" />
+   </component>
+ </project>
+\ No newline at end of file

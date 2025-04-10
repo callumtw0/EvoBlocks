@@ -1,0 +1,109 @@
+name: random_initialisation
+displayName: Random Initialisation
+category: Initialisation
+description: Generates solutions by randomly shuffling cities in the TSP tour. Ensures diversity but lacks structure.
+
+name: nearest_neighbour_initialisation
+displayName: Nearest Neighbor Initialisation
+category: Initialisation
+description: Starts from a random city and builds a solution by iteratively selecting the nearest unvisited city.
+
+name: hybrid_initialisation
+displayName: Hybrid Initialisation
+category: Initialisation
+description: Combines Random and Nearest Neighbor to balance exploration and exploitation.
+
+name: elitist_selection
+displayName: Elitist Selection
+category: Selection
+description: Preserves the top-performing individuals for the next generation to maintain strong candidates.
+
+name: roulette_wheel_selection
+displayName: Roulette Wheel Selection
+category: Selection
+description: Assigns selection probability proportional to fitness; solutions with better fitness have a higher chance of selection.
+
+name: stochastic_universal_sampling
+displayName: Stochastic Universal Sampling (SUS)
+category: Selection
+description: Similar to Roulette Wheel but selects multiple parents at evenly spaced intervals to maintain diversity.
+
+name: tournament_selection
+displayName: Tournament Selection
+category: Selection
+description: Selects a random subset of individuals and picks the best one, balancing diversity and strong candidates.
+
+name: rank_based_selection
+displayName: Rank-Based Selection
+category: Selection
+description: Assigns selection probability based on rank rather than raw fitness, mitigating issues from large fitness gaps.
+
+name: partially_mapped_crossover
+displayName: Partially Mapped Crossover (PMX)
+category: Crossover
+description: Swaps a segment between parents and repairs conflicts, preserving genetic information but computationally expensive.
+
+name: order_crossover
+displayName: Order Crossover (OX)
+category: Crossover
+description: Preserves relative order from both parents, ensuring valid offspring but potentially disrupting useful genetic structures.
+
+name: cycle_crossover
+displayName: Cycle Crossover
+category: Crossover
+description: Preserves absolute positions of elements while swapping cycles of genes between parents, maintaining structure but limiting exploration.
+
+name: edge_recombination_crossover
+displayName: Edge Recombination Crossover
+category: Crossover
+description: Focuses on maintaining as many common edges as possible from parent solutions, favoring strong connectivity but requiring additional computation.
+
+name: swap_mutation
+displayName: Swap Mutation
+category: Mutation
+description: Swaps two randomly selected cities in the tour, maintaining feasibility but causing only minor variations.
+
+name: inversion_mutation
+displayName: Inversion Mutation
+category: Mutation
+description: Selects a segment and reverses its order, preserving adjacency relationships but disrupting existing paths.
+
+name: scramble_mutation
+displayName: Scramble Mutation
+category: Mutation
+description: Randomly shuffles the order of a selected segment of the solution, improving exploration but risking loss of good patterns.
+
+name: displacement_mutation
+displayName: Displacement Mutation
+category: Mutation
+description: Removes a randomly selected segment and reinserts it in a different position within the solution, increasing variability but computationally costly.
+
+name: two_option_local_search
+displayName: 2 Option Local Search
+category: Local Search
+description: Improves a tour by swapping two edges to remove intersections, effective but can be slow for large instances.
+
+name: greedy_descent_local_search
+displayName: Greedy Descent Local Search
+category: Local Search
+description:  improves a candidate tour by identifying and modifying suboptimal edges to minimize the total tour distance.
+
+name: elitist_replacement
+displayName: Elitism Replacement
+category: Replacement
+description: Replaces worst individuals while keeping the best unchanged, preserving quality but reducing diversity.
+
+name: generational_replacement
+displayName: Generational Replacement
+category: Replacement
+description: Completely replaces the old population with the new offspring every generation, ensuring fresh solutions but risking loss of good individuals.
+
+name: steady_state_replacement
+displayName: Steady-State Replacement
+category: Replacement
+description: Replaces only a small portion of the population in each generation, maintaining continuity but slowing convergence.
+
+name: fitness_based_replacement
+displayName: Fitness-Based Replacement
+category: Replacement
+description: Selectively replaces individuals based on fitness, preferring weaker individuals to be replaced by stronger offspring. Helps maintain a balance between exploration and exploitation.
