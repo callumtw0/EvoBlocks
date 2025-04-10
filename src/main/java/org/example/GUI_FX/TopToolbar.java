@@ -11,11 +11,31 @@ import org.example.MemeticAlgorithm.Tester;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-
+import java.net.URI;
+import java.util.*;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
+/*
+ * Copyright (c) 2025 Callum Welsford
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 public class TopToolbar {
     WorkspacePanel workspacePanel;
     List<HeuristicData> heuristics;
@@ -106,7 +126,7 @@ public class TopToolbar {
         populationSizeDropdown = new ComboBox<>();
         populationSizeDropdown.setPromptText("Population Size");
         populationSizeDropdown.setStyle("-fx-background-color: #FFFFFF; -fx-text-fill: black;");
-        populationSizeDropdown.getItems().addAll(50, 100, 200, 300, 500);
+        populationSizeDropdown.getItems().addAll(50, 100, 200, 500, 1000);
         populationSizeDropdown.setValue(100);
         Button populationHelpButton = new Button("?");
         populationHelpButton.setStyle("-fx-background-color: #666; -fx-text-fill: white; -fx-font-size: 10px; -fx-pref-width: 20px; -fx-pref-height: 20px;");
@@ -225,37 +245,65 @@ public class TopToolbar {
     }
 //boobies
     // Method to populate the ComboBox with .tsp files
-    private void populateTspFiles() {
-        try {
-            // Load resources from the classpath
-            ClassLoader classLoader = getClass().getClassLoader();
-            // Path to the Problem directory in Resources/Data
-            java.net.URL resourceUrl = classLoader.getResource("Problems");
+private void populateTspFiles() {
+    try {
+        // Clear any existing items in the dropdown
+        tspFileDropdown.getItems().clear();
 
-            if (resourceUrl == null) {
-                tspFileDropdown.getItems().add("No .tsp files found (directory not found)");
-                return;
+        // Path to the Problems directory in resources (without leading slash for getResource)
+        String resourcePath = "Problems";
+        java.net.URL resourceUrl = getClass().getClassLoader().getResource(resourcePath);
+
+        if (resourceUrl == null) {
+            tspFileDropdown.getItems().add("No .tsp files found (directory not found)");
+            return;
+        }
+
+        // Determine if we're running from a JAR or the IDE
+        String protocol = resourceUrl.getProtocol();
+        List<String> tspFiles = new ArrayList<>();
+
+        if ("jar".equals(protocol)) {
+            // Running from a JAR
+            String jarPath = resourceUrl.getPath().substring(0, resourceUrl.getPath().indexOf("!"));
+            try (JarFile jar = new JarFile(new File(new URI(jarPath)))) {
+                Enumeration<JarEntry> entries = jar.entries();
+                while (entries.hasMoreElements()) {
+                    JarEntry entry = entries.nextElement();
+                    String name = entry.getName();
+                    // Look for files in the Problems directory that end with .tsp
+                    if (name.startsWith(resourcePath + "/") && name.toLowerCase().endsWith(".tsp")) {
+                        // Extract just the file name (e.g., "berlin52.tsp")
+                        String fileName = name.substring(name.lastIndexOf("/") + 1);
+                        tspFiles.add(fileName);
+                    }
+                }
             }
-
-            // Convert URL to a File (works if running from a JAR or IDE with proper resource setup)
+        } else if ("file".equals(protocol)) {
+            // Running from the IDE or a filesystem
             File tspDir = new File(resourceUrl.toURI());
             if (tspDir.exists() && tspDir.isDirectory()) {
-                File[] tspFiles = tspDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".tsp"));
-                if (tspFiles != null && tspFiles.length > 0) {
-                    for (File file : tspFiles) {
-                        tspFileDropdown.getItems().add(file.getName());
+                File[] files = tspDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".tsp"));
+                if (files != null && files.length > 0) {
+                    for (File file : files) {
+                        tspFiles.add(file.getName());
                     }
-                } else {
-                    tspFileDropdown.getItems().add("No .tsp files found in directory");
                 }
-            } else {
-                tspFileDropdown.getItems().add("Problem directory not found");
             }
-        } catch (Exception e) {
-            tspFileDropdown.getItems().add("Error loading .tsp files: " + e.getMessage());
-            e.printStackTrace();
         }
+
+        // Populate the ComboBox
+        if (tspFiles.isEmpty()) {
+            tspFileDropdown.getItems().add("No .tsp files found in directory");
+        } else {
+            tspFileDropdown.getItems().addAll(tspFiles);
+        }
+
+    } catch (Exception e) {
+        tspFileDropdown.getItems().add("Error loading .tsp files: " + e.getMessage());
+        e.printStackTrace();
     }
+}
 
 
     private void saveGraph() {
@@ -315,7 +363,7 @@ public class TopToolbar {
                         "   - Example files include berlin52.tsp (52 cities) and kroA100.tsp (100 cities).\n" +
                         "3. Choose the number of generations from the 'Generations' dropdown.\n" +
                         "   - This determines how many iterations the algorithm will run. Higher values may improve results but increase runtime.\n" +
-                        "   - Options: 50, 100, 200, 500, 1000 (default: 100).\n" +
+                        "   - Options: 2000, 5000, 10000, 20000, 50000 (default: 5000).\n" +
                         "4. Choose the population size from the 'Population Size' dropdown.\n" +
                         "   - This sets the number of solutions (individuals) in each generation. Larger populations increase diversity but require more computation.\n" +
                         "   - Options: 50, 100, 200, 300, 500 (default: 100).\n" +
@@ -343,7 +391,7 @@ public class TopToolbar {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information");
         alert.setHeaderText("Details about Memetic Algorithms and the Travelling Salesman Problem");
-        TextArea textArea = new TextArea("A Memetic Algorithm is a form of problem optimisation which simulates evolution and the principal of 'Survival of the Fittest' through a sequence of heuristics. "+
+        TextArea textArea = new TextArea("A Memetic Algorithm is a form of problem optimisation which simulates evolution and the principle of 'Survival of the Fittest' through a sequence of heuristics. "+
                 "This involves generating a series of potential solutions to the chosen problem via a generation heuristic to form an initial generation. "+
                 "The rest of the heuristic are repeated each time to form a new generation but how they affect the population depends on the position of the selection heuristics."+
                 "A Mutation heuristic performs a random change to a solution to explore more of the solution space. " +
@@ -363,7 +411,29 @@ public class TopToolbar {
                 "The algorithm must then find the shortest tour to visit all of the cities exactly once and return to the start. " +
                 "The performance of the generated solution is correlated directly to the distance of the tour (being one over the value). " +
                 "The best solution in the current generation can be viewed with the tabs on the right side of the screen alongside the standard deviation, convergence rate and fitness/distance values over the generations. " +
-                "Information about the heuristics is available in the bottom right by clicking on the desired heuristic."
+                "Information about the heuristics is available in the bottom right by clicking on the desired heuristic.\n\n\n"+
+                "EvoBlocks is licensed under the MIT License.\n\n" +
+                "Copyright (c) 2025 Callum Welsford\n\n" +
+                "Permission is hereby granted, free of charge, to any person obtaining a copy " +
+                "of this software and associated documentation files (the \"Software\"), to deal " +
+                "in the Software without restriction, including without limitation the rights " +
+                "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell " +
+                "copies of the Software, and to permit persons to whom the Software is " +
+                "furnished to do so, subject to the following conditions:\n\n" +
+                "The above copyright notice and this permission notice shall be included in all " +
+                "copies or substantial portions of the Software.\n\n" +
+                "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR " +
+                "IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, " +
+                "FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE " +
+                "AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER " +
+                "LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, " +
+                "OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE " +
+                "SOFTWARE.\n"+
+                "\n\nThird-Party Libraries:\n" +
+                "- JavaFX: Licensed under the GNU General Public License v2 with the Classpath Exception (GPLv2+CE).\n" +
+                "  See https://openjdk.java.net/legal/gplv2+ce.html for details.\n" +
+                "- JFreeChart: Licensed under the GNU Lesser General Public License v3 (LGPLv3).\n" +
+                "  See https://www.gnu.org/licenses/lgpl-3.0.html for details. Source code available at http://www.jfree.org/jfreechart/."
         );
         textArea.setEditable(false);
         textArea.setWrapText(true);

@@ -25,7 +25,27 @@ import java.util.Objects;
 
 import static org.example.MemeticAlgorithm.TSPUtils.*;
 
-
+/*
+ * Copyright (c) 2025 Callum Welsford
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 public class Tester {
     TSPLIB_parser parser = new TSPLIB_parser();
     Map<Integer, double[]> map;
@@ -51,12 +71,13 @@ public class Tester {
     }
 
     public void runForIDE(List<HeuristicData> heuristics, String selectedTspFile, Integer numGenerations, Integer populationSize, List<Map<String, Double>> heuristicParameters) throws IOException {
+        isRunning = false;
         // Cancel the current task if it exists and is running
         if (currentTask != null && !currentTask.isDone()) {
             currentTask.cancel(true); // Interrupt the current task
             while (!currentTask.isDone()) {
                 try {
-                    Thread.sleep(10); // Wait briefly for the task to stop
+                    Thread.sleep(100); // Wait briefly for the task to stop
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                     break;// Restore interrupted status
@@ -79,8 +100,9 @@ public class Tester {
                 numCities = map.size();
                 optimalDistance = parser.parseOptimalTour(selectedTspFile,distanceMatrix);
                 try {
-                    String initialisation = heuristics.getFirst().getName(); // Get the constant value
+                    String initialisation = heuristics.getFirst().getName().toLowerCase(); // Get the constant value
                     Map<String,Double> initialisationParam = heuristicParameters.getFirst();
+
                     switch (initialisation) {
                         case RANDOM_INITIALISATION:
                             initialisationHeuristic = new RandomInitialisation(distanceMatrix, initialisationParam);
@@ -95,7 +117,7 @@ public class Tester {
                     heuristics.removeFirst();
                     heuristicParameters.removeFirst();
 
-                    String replacement = heuristics.getFirst().getName(); // Get the constant value
+                    String replacement = heuristics.getFirst().getName().toLowerCase(); // Get the constant value
                     Map<String,Double> replacementParam = heuristicParameters.getFirst();
                     switch (replacement) {
                         case ELITIST_REPLACEMENT:
@@ -129,11 +151,11 @@ public class Tester {
                     int ranHeuristics;
                     for (int gen = 0; gen < numGenerations && !isCancelled(); gen++) {
                         ranHeuristics = 0;
-                        offspringPopulation = population;
+                        offspringPopulation = (ArrayList<Individual>) population.clone();
                         int pos = 0;
                         for (HeuristicData heuristic : heuristics){
                             if (Objects.equals(heuristic.getCategory(), "Mutation")) {
-                                String mutation = heuristic.getName(); // Get the constant value
+                                String mutation = heuristic.getName().toLowerCase(); // Get the constant value
                                 Map<String,Double> mutationParam = heuristicParameters.get(ranHeuristics);
                                 MutationHeuristic mutationHeuristic = switch (mutation) {
                                     case SWAP_MUTATION -> new SwapMutation(mutationParam);
@@ -145,7 +167,7 @@ public class Tester {
                                 offspringPopulation = mutationHeuristic.run(offspringPopulation);
                                 ranHeuristics++;
                             } else if (Objects.equals(heuristic.getCategory(), "Local Search")) {
-                                String localSearch = heuristic.getName(); // Get the constant value
+                                String localSearch = heuristic.getName().toLowerCase(); // Get the constant value
                                 Map<String,Double> searchParam = heuristicParameters.get(ranHeuristics);
                                 LocalSearchHeuristic localSearchHeuristic = switch (localSearch) {
                                     case TWO_OPTION_LOCAL_SEARCH -> new twoOptLocalSearch(searchParam);
@@ -164,7 +186,7 @@ public class Tester {
                             while (newPopulation.size() < populationSize && isRunning) {
                                 Individual candidate;
 
-                                String selection = heuristics.get(ranHeuristics).getName(); // Get the constant value
+                                String selection = heuristics.get(ranHeuristics).getName().toLowerCase(); // Get the constant value
                                 Map<String,Double> selectionParam = heuristicParameters.get(ranHeuristics);
                                 switch (selection) {
                                     case ELITIST_SELECTION:
@@ -183,7 +205,7 @@ public class Tester {
                                         selectionHeuristic = new StochasticUniversalSampling();
                                         break;
                                 }
-                                String crossover = heuristics.get(ranHeuristics + 1).getName(); // Get the constant value
+                                String crossover = heuristics.get(ranHeuristics + 1).getName().toLowerCase(); // Get the constant value
                                 switch (crossover) {
                                     case PARTIALLY_MATCHED_CROSSOVER:
                                         crossoverHeuristic = new PartiallyMappedCrossover(selectionHeuristic, populationSize);
@@ -206,7 +228,7 @@ public class Tester {
                                     Map<String,Double> param = heuristicParameters.get(i);
                                     switch (heuristic.getCategory()) {
                                         case "Selection":
-                                            String sel = heuristic.getName(); // Get the constant value
+                                            String sel = heuristic.getName().toLowerCase(); // Get the constant value
                                             switch (sel) {
                                                 case ELITIST_SELECTION:
                                                     selectionHeuristic = new ElitistSelection();
@@ -226,7 +248,7 @@ public class Tester {
                                             }
                                             break;
                                         case "Crossover":
-                                            String cross = heuristic.getName(); // Get the constant value
+                                            String cross = heuristic.getName().toLowerCase(); // Get the constant value
                                             switch (cross) {
                                                 case PARTIALLY_MATCHED_CROSSOVER:
                                                     crossoverHeuristic = new PartiallyMappedCrossover(selectionHeuristic, populationSize);
@@ -244,7 +266,7 @@ public class Tester {
                                             candidate = crossoverHeuristic.run(offspringPopulation, candidate);
                                             break;
                                         case "Mutation":
-                                            String mut = heuristic.getName(); // Get the constant value
+                                            String mut = heuristic.getName().toLowerCase(); // Get the constant value
                                             switch (mut) {
                                                 case SWAP_MUTATION:
                                                     mutationHeuristic = new SwapMutation(param);
@@ -262,7 +284,7 @@ public class Tester {
                                             candidate = mutationHeuristic.run(candidate);
                                             break;
                                         case "Local Search":
-                                            String ls = heuristic.getName(); // Get the constant value
+                                            String ls = heuristic.getName().toLowerCase(); // Get the constant value
                                             switch (ls) {
                                                 case TWO_OPTION_LOCAL_SEARCH:
                                                     localSearchHeuristic = new twoOptLocalSearch(param);

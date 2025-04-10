@@ -17,7 +17,27 @@ import javafx.scene.shape.Polygon;
 import javafx.scene.shape.QuadCurve;
 
 import java.util.*;
-
+/*
+ * Copyright (c) 2025 Callum Welsford
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 public class WorkspacePanel {
     private GridPane workspaceGrid;
     private GridPane initialisationSpace;
@@ -135,7 +155,7 @@ public class WorkspacePanel {
                 int heuristicId = Integer.parseInt(db.getString());
                 HeuristicData heuristicData = heuristics.get(heuristicId);
                 long instanceId = instanceCounter++; // Generate a unique instance ID
-                ImageView heuristicImage = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/" + heuristicData.getCategory() + "/" + heuristicData.getName() + ".png"))));
+                ImageView heuristicImage = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/Images/" + heuristicData.getCategory() + "/" + heuristicData.getName() + ".png"))));
                 heuristicImage.setFitWidth(104);
                 heuristicImage.setFitHeight(48);
                 heuristicImage.setUserData(instanceId); // Store instance ID in the image

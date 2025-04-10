@@ -27,7 +27,28 @@ import java.io.*;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
+import java.util.concurrent.TimeUnit;
+/*
+ * Copyright (c) 2025 Callum Welsford
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 public class RightPanel implements AutoCloseable {
     private TabPane tabPane;
     private BestTourGraph bestTourGraph;
@@ -168,26 +189,45 @@ public class RightPanel implements AutoCloseable {
     }
 
     public void resetGraph() {
-        executorService.submit(() -> {
-            synchronized (distanceSeries) {
-                distanceSeries.clear();
-                bestDistanceSeries.clear();
-                worstDistanceSeries.clear();
-                fitnessSeries.clear();
-                bestFitnessSeries.clear();
-                worstFitnessSeries.clear();
-                optimalDistanceSeries.clear();
-                optimalFitnessSeries.clear();
+        // Shut down the executorService to prevent new tasks from being submitted
+        if (executorService != null && !executorService.isShutdown()) {
+            executorService.shutdown();
+            try {
+                if (!executorService.awaitTermination(5, TimeUnit.SECONDS)) {
+                    executorService.shutdownNow();
+                }
+            } catch (InterruptedException e) {
+                executorService.shutdownNow();
+                Thread.currentThread().interrupt();
             }
-            bestTourGraph.resetGraph();
-            deviationGraph.resetGraph();
-            percentageDiffGraph.resetGraph(); // Reset percentage graph
-            Platform.runLater(() -> {
-                updateUI();
-                bestTourGraph.updateUI();
-                deviationGraph.updateUI();
-                percentageDiffGraph.updateUI();
-            });
+        }
+
+        // Clear all series
+        synchronized (distanceSeries) {
+            distanceSeries.clear();
+            bestDistanceSeries.clear();
+            worstDistanceSeries.clear();
+            fitnessSeries.clear();
+            bestFitnessSeries.clear();
+            worstFitnessSeries.clear();
+            optimalDistanceSeries.clear();
+            optimalFitnessSeries.clear();
+        }
+
+        // Reset other graphs
+        bestTourGraph.resetGraph();
+        deviationGraph.resetGraph();
+        percentageDiffGraph.resetGraph();
+
+        // Recreate the executorService for future updates
+        executorService = Executors.newFixedThreadPool(2);
+
+        // Force a UI update on the JavaFX thread
+        Platform.runLater(() -> {
+            updateUI();
+            bestTourGraph.updateUI();
+            deviationGraph.updateUI();
+            percentageDiffGraph.updateUI();
         });
     }
 
