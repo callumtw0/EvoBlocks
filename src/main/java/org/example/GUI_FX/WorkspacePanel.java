@@ -283,8 +283,7 @@ public class WorkspacePanel {
             params.put("mutationRate", 0.05); // Default value
         } else if (category.equals("Selection") && name.contains("tournament")) {
             params.put("tournamentSize", 3.0); // Default value
-        } else if ((category.equals("Selection") && name.contains("elitist")) ||
-                (category.equals("Replacement") && name.contains("elitist"))) {
+        } else if ((category.equals("Replacement") && name.contains("elitist"))) {
             params.put("elitismRate", 0.1); // Default value
         } else if (name.contains("local") || name.contains("search")) {
             params.put("localSearchProbability", 0.2); // Default value

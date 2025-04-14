@@ -72,15 +72,23 @@ public class TopToolbar {
 
         Button runButton = new Button("RUN");
         runButton.setStyle("-fx-background-color: #28A745; -fx-text-fill: white; -fx-font-weight: bold;");
+        runButton.setMinWidth(100);
+
+        Button pausePlayButton = new Button("Pause / Resume");
+        pausePlayButton.setStyle("-fx-background-color: #d93939; -fx-text-fill: white; -fx-font-weight: bold; fx-padding: 5px 10px; -fx-scale-x: 1.1");
+        pausePlayButton.setMinWidth(100);
 
         Button instructionsButton = new Button("Instructions");
         instructionsButton.setStyle("-fx-background-color: #F4D03F; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 5px 10px;");
+        instructionsButton.setMinWidth(150);
         instructionsButton.setOnAction(e -> showInstructionsPopup());
 
         // Information Button
         Button informationButton = new Button("Information");
         informationButton.setStyle("-fx-background-color: #000000; -fx-text-fill: white; -fx-font-weight: bold; fx-padding: 5px 10px;");
+        informationButton.setMinWidth(140);
         informationButton.setOnAction(e -> showInformationPopup());
+
 
 
 
@@ -240,7 +248,7 @@ public class TopToolbar {
         compareGraphsButton.setOnAction(e -> compareGraphs());
 
 //        toolbar.getChildren().addAll(runButton, instructionsButton, loadButton, saveButton, saveGraphButton, compareGraphsButton);
-        toolbar.getChildren().addAll(runButton, tspLabel, tspFileDropdown, generationsLabel, generationsDropdown, populationLabel, populationSizeDropdown, instructionsButton, informationButton);
+        toolbar.getChildren().addAll(runButton, pausePlayButton, tspLabel, tspFileDropdown, generationsLabel, generationsDropdown, populationLabel, populationSizeDropdown, instructionsButton, informationButton);
         return toolbar;
     }
 //boobies
@@ -367,7 +375,7 @@ private void populateTspFiles() {
                         "4. Choose the population size from the 'Population Size' dropdown.\n" +
                         "   - This sets the number of solutions (individuals) in each generation. Larger populations increase diversity but require more computation.\n" +
                         "   - Options: 50, 100, 200, 300, 500 (default: 100).\n" +
-                        "5. Click 'Run' to start the algorithm with the selected .tsp file, generations, and population size.\n" +
+                        "5. Click 'Run' to start the algorithm with the selected .tsp file, generations, and population size. The algorithm can be paused and resumed with the pause / resume button.\n" +
                         "6. View the performance of the algorithm using the graphs on the right side of the screen.\n" +
                         "\n\n**Algorithm Requirements:**\n" +
                         "- The algorithm must include an Initialisation heuristic at the start and a Replacement heuristic.\n" +

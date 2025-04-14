@@ -390,7 +390,6 @@ public class Tester {
         Thread currentThread = new Thread(currentTask);
         currentThread.setDaemon(true); // Allows the thread to terminate when the application closes
         currentThread.start();
-//        currentTask.setOnCancelled(event -> rightPanel.resetGraph());
     }
 
     public double getOptimalDistance() {
