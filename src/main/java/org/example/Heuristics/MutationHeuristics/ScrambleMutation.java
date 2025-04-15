@@ -29,8 +29,15 @@ import java.util.*;
 public class ScrambleMutation implements MutationHeuristic {
     double mutationRate;
 
-    public ScrambleMutation(Map<String,Double> param) {
+    private final Random rand; // Added for deterministic testing
+
+    public ScrambleMutation(Map<String, Double> param, Random rand) {
         this.mutationRate = param.get("MutationRate");
+        this.rand = rand != null ? rand : new Random();
+    }
+
+    public ScrambleMutation(Map<String, Double> param) {
+        this(param, new Random());
     }
 
     @Override
@@ -44,7 +51,6 @@ public class ScrambleMutation implements MutationHeuristic {
 
     @Override
     public Individual run(Individual individual) {
-        Random rand = new Random();
         if(rand.nextFloat() < mutationRate) {
             int numCities = individual.getTour().length;
             int[] tour = individual.getTour();
@@ -64,14 +70,16 @@ public class ScrambleMutation implements MutationHeuristic {
             for (int k = i; k <= j; k++) {
                 segment.add(tour[k]);
             }
-            Collections.shuffle(segment);
+            int[] newTour = tour.clone();
+            while(Arrays.equals(newTour, tour)) {
+                Collections.shuffle(segment);
 
-            // Insert back shuffled values
-            for (int k = i; k <= j; k++) {
-                tour[k] = segment.get(k - i);
+                // Insert back shuffled values
+                for (int k = i; k <= j; k++) {
+                    newTour[k] = segment.get(k - i);
+                }
             }
-
-            individual.setTour(tour);
+            individual.setTour(newTour);
 
         }
         return individual;

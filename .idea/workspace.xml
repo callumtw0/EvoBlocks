@@ -9,20 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13e2aa5d-a325-4455-8d74-6cf7e5584772" name="Changes" comment="Updated layout and bugfixes">
-      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Crossover/CycleCrossoverTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Crossover/EdgeRecombinationCrossoverTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Crossover/OrderCrossoverTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Crossover/PartiallyMappedCrossoverTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Initialisation/HybridInitialisationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Initialisation/NearestNeighbourInitialisationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Initialisation/RandomInitialisationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Selection/ElitistSelectionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Selection/RankBasedSelectionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Selection/RouletteWheelSelectionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Selection/StochasticUniversalSamplingTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Selection/TournamentSelectionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/TestUtils.java" afterDir="false" />
+    <list default="true" id="13e2aa5d-a325-4455-8d74-6cf7e5584772" name="Changes" comment="Bugfixes and update TournamentSelection functionality">
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/LocalSearch/GreedyDescentLocalSearchTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/LocalSearch/twoOptLocalSearchTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Mutation/DisplacementMutationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Mutation/InversionMutationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Mutation/ScrambleMutationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Mutation/SwapMutationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Replacement/ElitistReplacementTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Replacement/FitnessBasedReplacementTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Replacement/GenerationalReplacementTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Replacement/ReplacementHeuristicTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Replacement/SteadyStateReplacementTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-console-l1-1-0.dll" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-console-l1-2-0.dll" beforeDir="false" />
@@ -179,19 +177,17 @@
       <change beforePath="$PROJECT_DIR$/custom-jre/lib/tzdb.dat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-jre/lib/tzmappings" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-jre/release" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/RightPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/RightPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/TopToolbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/TopToolbar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/WorkspacePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/WorkspacePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/CrossoverHeuristics/CycleCrossover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/CrossoverHeuristics/CycleCrossover.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/CrossoverHeuristics/EdgeRecombinationCrossover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/CrossoverHeuristics/EdgeRecombinationCrossover.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/CrossoverHeuristics/OrderCrossover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/CrossoverHeuristics/OrderCrossover.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/CrossoverHeuristics/PartiallyMappedCrossover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/CrossoverHeuristics/PartiallyMappedCrossover.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/SelectionHeuristics/TournamentSelection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/SelectionHeuristics/TournamentSelection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/LocalSearchHeuristics/GreedyDescentLocalSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/LocalSearchHeuristics/GreedyDescentLocalSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/MutationHeuristics/DisplacementMutation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/MutationHeuristics/DisplacementMutation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/MutationHeuristics/InversionMutation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/MutationHeuristics/InversionMutation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/MutationHeuristics/ScrambleMutation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/MutationHeuristics/ScrambleMutation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/MutationHeuristics/SwapMutation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/MutationHeuristics/SwapMutation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/ReplacementHeuristics/GenerationalRepacement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/ReplacementHeuristics/GenerationalReplacement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/ReplacementHeuristics/SteadyStateReplacement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/ReplacementHeuristics/SteadyStateReplacement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MemeticAlgorithm/Algorithm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MemeticAlgorithm/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MemeticAlgorithm/Individual.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MemeticAlgorithm/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MemeticAlgorithm/Tester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Heursitics/Crossover/PartiallyMappedCrossoverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Crossover/PartiallyMappedCrossoverTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Heursitics/Selection/TournamentSelectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Selection/TournamentSelectionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,27 +219,42 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.MainApp.executor": "Run",
-    "Application.RUN.executor": "Debug",
+    "Application.RUN.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.All in EvoBlocks.executor": "Run",
     "JUnit.Crossover in EvoBlocks.executor": "Run",
     "JUnit.CycleCrossoverTest.executor": "Run",
     "JUnit.EdgeRecombinationCrossoverTest.executor": "Run",
+    "JUnit.ElitistReplacementTest.executor": "Run",
+    "JUnit.ElitistReplacementTest.testRecombine.executor": "Debug",
     "JUnit.ElitistSelectionTest.executor": "Run",
+    "JUnit.FitnessBasedReplacementTest.executor": "Run",
+    "JUnit.GreedyDescentLocalSearchTest.testImprovesTour.executor": "Debug",
+    "JUnit.Heursitics in EvoBlocks.executor": "Run",
     "JUnit.Heursitics.Crossover in EvoBlocks.executor": "Run",
+    "JUnit.Heursitics.LocalSearch in EvoBlocks.executor": "Run",
+    "JUnit.Heursitics.Mutation in EvoBlocks.executor": "Run",
     "JUnit.HybridInitialisationTest.executor": "Run",
     "JUnit.HybridInitialisationTest.testRunAppliesHybridRatioCorrectly.executor": "Run",
+    "JUnit.InversionMutationTest.executor": "Run",
+    "JUnit.InversionMutationTest.testMutationReversesSegment.executor": "Run",
+    "JUnit.InversionMutationTest.testMutationWithKnownSegment.executor": "Run",
     "JUnit.NearestNeighbourInitialisationTest.executor": "Run",
     "JUnit.OrderCrossoverTest.executor": "Run",
     "JUnit.OrderCrossoverTest.testGenerateOffspringWithIdenticalParents.executor": "Debug",
     "JUnit.PartiallyMappedCrossoverTest.executor": "Run",
     "JUnit.RankBasedSelectionTest.executor": "Run",
     "JUnit.RouletteWheelSelectionTest.executor": "Run",
+    "JUnit.ScrambleMutationTest.executor": "Run",
+    "JUnit.ScrambleMutationTest.testMutationWithKnownSegment.executor": "Run",
+    "JUnit.ScrambleMutationTest.testMutationWithSmallTour.executor": "Debug",
     "JUnit.Selection in EvoBlocks.executor": "Run",
     "JUnit.StochasticUniversalSamplingTest.executor": "Run",
+    "JUnit.SwapMutationTest.testMutationWithKnownIndices.executor": "Debug",
     "JUnit.TournamentSelectionTest.executor": "Run",
     "JUnit.TournamentSelectionTest.testRunPrefersHigherFitnessIndividuals.executor": "Run",
     "JUnit.java in EvoBlocks.executor": "Run",
+    "JUnit.twoOptLocalSearchTest.testImprovesTour.executor": "Run",
     "Maven.EvoBlocks [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
@@ -275,7 +286,7 @@
       <recent name="D:\Workspace\Java\IntelliJ\EvoBlocks\src\main\resources\Icon" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.RUN">
+  <component name="RunManager" selected="JUnit.Heursitics in EvoBlocks">
     <configuration name="RUN" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.example.GUI_FX.MainApp" />
       <module name="EvoBlocks" />
@@ -284,80 +295,87 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in EvoBlocks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ElitistReplacementTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EvoBlocks" />
-      <option name="PACKAGE_NAME" value="" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Heursitics.Replacement.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Heursitics.Replacement" />
+      <option name="MAIN_CLASS_NAME" value="Heursitics.Replacement.ElitistReplacementTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FitnessBasedReplacementTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EvoBlocks" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Heursitics.Replacement.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Heursitics.Replacement" />
+      <option name="MAIN_CLASS_NAME" value="Heursitics.Replacement.FitnessBasedReplacementTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GreedyDescentLocalSearchTest.testImprovesTour" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EvoBlocks" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Heursitics.LocalSearch.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Heursitics.LocalSearch" />
+      <option name="MAIN_CLASS_NAME" value="Heursitics.LocalSearch.GreedyDescentLocalSearchTest" />
+      <option name="METHOD_NAME" value="testImprovesTour" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Heursitics in EvoBlocks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EvoBlocks" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Heursitics.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Heursitics" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EdgeRecombinationCrossoverTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Heursitics.Replacement in EvoBlocks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EvoBlocks" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Heursitics.Crossover.*" />
+          <option name="PATTERN" value="Heursitics.Replacement.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Heursitics.Crossover" />
-      <option name="MAIN_CLASS_NAME" value="Heursitics.Crossover.EdgeRecombinationCrossoverTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Heursitics.Crossover in EvoBlocks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="EvoBlocks" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Heursitics.Crossover.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Heursitics.Crossover" />
+      <option name="PACKAGE_NAME" value="Heursitics.Replacement" />
       <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrderCrossoverTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="EvoBlocks" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Heursitics.Crossover.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Heursitics.Crossover" />
-      <option name="MAIN_CLASS_NAME" value="Heursitics.Crossover.OrderCrossoverTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PartiallyMappedCrossoverTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="EvoBlocks" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Heursitics.Crossover.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Heursitics.Crossover" />
-      <option name="MAIN_CLASS_NAME" value="Heursitics.Crossover.PartiallyMappedCrossoverTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.OrderCrossoverTest" />
-        <item itemvalue="JUnit.EdgeRecombinationCrossoverTest" />
-        <item itemvalue="JUnit.PartiallyMappedCrossoverTest" />
-        <item itemvalue="JUnit.Heursitics.Crossover in EvoBlocks" />
-        <item itemvalue="JUnit.All in EvoBlocks" />
+        <item itemvalue="JUnit.Heursitics in EvoBlocks" />
+        <item itemvalue="JUnit.Heursitics.Replacement in EvoBlocks" />
+        <item itemvalue="JUnit.FitnessBasedReplacementTest" />
+        <item itemvalue="JUnit.ElitistReplacementTest" />
+        <item itemvalue="JUnit.GreedyDescentLocalSearchTest.testImprovesTour" />
       </list>
     </recent_temporary>
   </component>
@@ -394,7 +412,7 @@
       <workItem from="1744631207698" duration="1474000" />
       <workItem from="1744633383694" duration="7450000" />
       <workItem from="1744660456347" duration="6410000" />
-      <workItem from="1744719502703" duration="5994000" />
+      <workItem from="1744719502703" duration="15801000" />
     </task>
     <task id="LOCAL-00001" summary="New project for dissertation with maven">
       <option name="closed" value="true" />
@@ -412,7 +430,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744632952906</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Bugfixes and update TournamentSelection functionality">
+      <option name="closed" value="true" />
+      <created>1744738685561</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1744738685561</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -421,6 +447,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="New project for dissertation with maven" />
     <MESSAGE value="Updated layout and bugfixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated layout and bugfixes" />
+    <MESSAGE value="Bugfixes and update TournamentSelection functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bugfixes and update TournamentSelection functionality" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/Heursitics/Selection/TournamentSelectionTest.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

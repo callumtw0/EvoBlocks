@@ -36,7 +36,7 @@ public class SteadyStateReplacement implements ReplacementHeuristic{
     @Override
     public ArrayList<Individual> recombine(ArrayList<Individual> parents, ArrayList<Individual> offspring) {
         int replaceCount = (int) (parents.size() * replacementRate);
-
+        ArrayList<Individual> population = new ArrayList<>(parents);;
         // Sort offspring by fitness (descending)
         offspring.sort(Comparator.comparingDouble(Individual::getFitness).reversed());
 
@@ -44,10 +44,10 @@ public class SteadyStateReplacement implements ReplacementHeuristic{
         ArrayList<Individual> newIndividuals = new ArrayList<>(offspring.subList(0, replaceCount));
 
         // Replace worst individuals in parent population
-        parents.sort(Comparator.comparingDouble(Individual::getFitness));
-        parents.subList(0, replaceCount).clear();
-        parents.addAll(newIndividuals);
+        population.sort(Comparator.comparingDouble(Individual::getFitness));
+        population.subList(0, replaceCount).clear();
+        population.addAll(newIndividuals);
 
-        return parents;
+        return population;
     }
 }

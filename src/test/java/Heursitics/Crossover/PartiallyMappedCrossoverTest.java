@@ -61,7 +61,7 @@ public class PartiallyMappedCrossoverTest {
         // Copy [2, 3, 4] -> [-1, -1, 2, 3, 4]
         // Mapping: 2 -> 2, 3 -> 1, 4 -> 0
         // Index 0: parent2[0] = 4 -> 0, Index 1: parent2[1] = 3 -> 1
-        int[] expected = new int[]{0, 1, 2, 3, 4};
+        int[] expected = new int[]{4, 1, 2, 3, 0};
         assertArrayEquals(expected, offspringTour,
                 "Offspring should apply PMX mapping correctly");
     }

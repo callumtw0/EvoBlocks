@@ -125,7 +125,7 @@ public class Tester {
                             replacementHeuristic = new FitnessBasedReplacement();
                             break;
                         case GENERATIONAL_REPLACEMENT:
-                            replacementHeuristic = new GenerationalRepacement();
+                            replacementHeuristic = new GenerationalReplacement();
                             break;
                         case STEADY_STATE_REPLACEMENT:
                             replacementHeuristic = new SteadyStateReplacement(replacementParam);

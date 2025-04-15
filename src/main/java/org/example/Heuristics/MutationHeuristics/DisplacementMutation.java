@@ -33,8 +33,15 @@ public class DisplacementMutation implements MutationHeuristic{
 
     double mutationRate;
 
-    public DisplacementMutation(Map<String,Double> param) {
+    private final Random rand; // Added for deterministic testing
+
+    public DisplacementMutation(Map<String, Double> param, Random rand) {
         this.mutationRate = param.get("MutationRate");
+        this.rand = rand != null ? rand : new Random();
+    }
+
+    public DisplacementMutation(Map<String, Double> param) {
+        this(param, new Random());
     }
 
     @Override
@@ -47,7 +54,6 @@ public class DisplacementMutation implements MutationHeuristic{
 
     @Override
     public Individual run(Individual individual) {
-        Random rand = new Random();
         if(rand.nextFloat() < mutationRate) {
             int numCities = individual.getTour().length;
             int[] tour = individual.getTour();

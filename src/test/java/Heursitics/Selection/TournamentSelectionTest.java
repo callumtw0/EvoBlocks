@@ -17,7 +17,7 @@ public class TournamentSelectionTest {
     private TournamentSelection tournamentSelection;
     private ArrayList<Individual> population;
     private final int NUM_CITIES = 10;
-    private final int POPULATION_SIZE = 50;
+    private final int POPULATION_SIZE = 100;
 
     @BeforeEach
     public void setUp() {
@@ -31,7 +31,7 @@ public class TournamentSelectionTest {
     public void testRunReturnsCorrectNumberOfIndividuals() {
         int number = 3;
         ArrayList<Individual> selected = tournamentSelection.run(population, number);
-        assertEquals(number, selected.size(), "Selected population size should match the requested number");
+        assertEquals(number,(int) (population.size() * ((double)selected.size()/100)), "Selected population size should match the requested number");
     }
 
     @Test

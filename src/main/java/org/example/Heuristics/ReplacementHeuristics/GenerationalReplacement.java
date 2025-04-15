@@ -25,7 +25,7 @@ import java.util.ArrayList;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-public class GenerationalRepacement implements ReplacementHeuristic {
+public class GenerationalReplacement implements ReplacementHeuristic {
 
     @Override
     public ArrayList<Individual> recombine(ArrayList<Individual> parents, ArrayList<Individual> offspring) {

@@ -51,7 +51,7 @@ public class GreedyDescentLocalSearch implements LocalSearchHeuristic{
             improved = false;
             int worstEdgeIndex = findWorstEdge(tour, distanceMatrix);
 
-            for (int i = 0; i < tour.length - 1; i++) {
+            for (int i = 0; i < tour.length; i++) {
                 if (i == worstEdgeIndex || i + 1 == worstEdgeIndex) continue; // Skip swapping adjacent worst edges
 
                 double oldFitness = individual.getFitness();
