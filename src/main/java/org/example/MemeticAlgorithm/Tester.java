@@ -71,23 +71,21 @@ public class Tester {
     }
 
     public void runForIDE(List<HeuristicData> heuristics, String selectedTspFile, Integer numGenerations, Integer populationSize, List<Map<String, Double>> heuristicParameters) throws IOException {
+        // Stop any existing task
         isRunning = false;
-        // Cancel the current task if it exists and is running
         if (currentTask != null && !currentTask.isDone()) {
-            currentTask.cancel(true); // Interrupt the current task
-            while (!currentTask.isDone()) {
-                try {
-                    Thread.sleep(100); // Wait briefly for the task to stop
-                } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt();
-                    break;// Restore interrupted status
-                }
+            currentTask.cancel(true);
+            try {
+                Thread.sleep(100); // Give a moment for cancellation
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
             }
         }
 
+        // Reset graphs and wait for completion
+        rightPanel.resetGraph();
 
         isRunning = true;
-        rightPanel.resetGraph();
 
         currentTask = new Task<>() {
             @Override
@@ -181,7 +179,7 @@ public class Tester {
                             }
                         }
 
-                        if (!heuristics.isEmpty() && isRunning && heuristics.size() > ranHeuristics) {
+                        if (!heuristics.isEmpty() && isRunning && !isCancelled() && heuristics.size() > ranHeuristics) {
                             ArrayList<Individual> newPopulation = new ArrayList<>();
                             while (newPopulation.size() < populationSize && isRunning) {
                                 Individual candidate;
@@ -297,11 +295,11 @@ public class Tester {
                                             break;
                                     }
                                 }
-                                if (isRunning) newPopulation.add(candidate);
+                                if (isRunning && !isCancelled()) newPopulation.add(candidate);
                             }
-                            if (isRunning) offspringPopulation = newPopulation;
+                            if (isRunning && !isCancelled()) offspringPopulation = newPopulation;
                         }
-                        if (isRunning) population = replacementHeuristic.recombine(population,offspringPopulation);
+                        if (isRunning && !isCancelled()) population = replacementHeuristic.recombine(population, offspringPopulation);
 
                         // Find the best individual (shortest tour) in the population
                         if (isRunning) {
@@ -360,6 +358,7 @@ public class Tester {
                             Thread.currentThread().interrupt(); // Restore interrupted status
                             break; // Exit the loop if interrupted
                         }
+                        if (!isRunning || isCancelled()) break;
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -394,5 +393,14 @@ public class Tester {
 
     public double getOptimalDistance() {
         return optimalDistance;
+    }
+
+    public void stop() {
+        isRunning = false;
+        if (currentTask != null && !currentTask.isDone()) {
+            currentTask.cancel(true);
+        }
+        population.clear(); // Clear population to free memory
+        rightPanel.resetGraph(); // Reset graphs to clear pending updates
     }
 }

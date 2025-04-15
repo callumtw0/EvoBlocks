@@ -30,7 +30,6 @@ import java.util.*;
 public class EdgeRecombinationCrossover extends CrossoverHeuristic{
     int populationSize;
     SelectionHeuristic selectionHeuristic;
-    double[][] distanceMatrix;
 
     public EdgeRecombinationCrossover(SelectionHeuristic selectionHeuristic, int populationSize) {
         super(selectionHeuristic, populationSize);
@@ -81,8 +80,8 @@ public class EdgeRecombinationCrossover extends CrossoverHeuristic{
         throw new RuntimeException("No available cities left!");
     }
 @Override
-    int[] generateOffspring(Individual parent1, Individual parent2){
-        int numCities = parent1.getNumberoOfCities();
+public int[] generateOffspring(Individual parent1, Individual parent2){
+        int numCities = parent1.getNumberOfCities();
         int[] offspringTour = new int[numCities];
         Arrays.fill(offspringTour, -1); // Mark empty spots
 

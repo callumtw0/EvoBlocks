@@ -43,7 +43,7 @@ public class Individual {
     public int[] getTour() {
         return tour;
     }
-    public int getNumberoOfCities(){
+    public int getNumberOfCities(){
         return tour.length;
     }
 

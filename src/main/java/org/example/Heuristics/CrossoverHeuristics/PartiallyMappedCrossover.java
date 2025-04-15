@@ -31,20 +31,25 @@ import java.util.Random;
 public class PartiallyMappedCrossover extends CrossoverHeuristic{
     int populationSize;
     SelectionHeuristic selectionHeuristic;
-    double[][] distanceMatrix;
+    private Random rand;
+
+    public PartiallyMappedCrossover(SelectionHeuristic selectionHeuristic, int populationSize, Random random) {
+        super(selectionHeuristic, populationSize);
+        this.rand = random != null ? random : new Random();
+    }
 
     public PartiallyMappedCrossover(SelectionHeuristic selectionHeuristic, int populationSize) {
-        super(selectionHeuristic, populationSize);
+        this(selectionHeuristic, populationSize, new Random());
     }
 
 
     @Override
-    int[] generateOffspring(Individual parent1, Individual parent2){
-        int numCities = parent1.getNumberoOfCities();
+    public int[] generateOffspring(Individual parent1, Individual parent2){
+        int numCities = parent1.getNumberOfCities();
         int[] offspringTour = new int[numCities];
         Arrays.fill(offspringTour, -1); // Mark empty spots
 
-        Random rand = new Random();
+//        rand = new Random();
         int point1 = rand.nextInt(numCities);
         int point2 = rand.nextInt(numCities - point1) + point1;
 

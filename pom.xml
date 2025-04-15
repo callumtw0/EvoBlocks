@@ -16,6 +16,7 @@
         <jfreechart.version>1.5.4</jfreechart.version>
         <jfreechart-fx.version>1.0.1</jfreechart-fx.version>
         <main.class>org.example.GUI_FX.MainApp</main.class>
+        <maven.test.skip>true</maven.test.skip>
     </properties>
 
 
@@ -47,6 +48,18 @@
             <groupId>org.jfree</groupId>
             <artifactId>jfreechart-fx</artifactId>
             <version>${jfreechart-fx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

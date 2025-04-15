@@ -37,6 +37,7 @@ import java.util.Objects;
 public class MainApp extends Application {
 
     private RightPanel rightPanel;
+    private TopToolbar topToolbar;
     @Override
     public void start(Stage primaryStage) throws IOException {
         primaryStage.setTitle("EvoBlocks - Evolutionary Algorithm Tool");
@@ -113,7 +114,8 @@ public class MainApp extends Application {
 
         // Root BorderPane
         BorderPane root = new BorderPane();
-        root.setTop(new TopToolbar(workspacePanel, heuristics, rightPanel).getToolbar());
+        topToolbar = new TopToolbar(workspacePanel, heuristics, rightPanel);
+        root.setTop(topToolbar.getToolbar());
         root.setCenter(mainLayout);
 
         // Scene & Resizing
@@ -133,7 +135,7 @@ public class MainApp extends Application {
         if (rightPanel != null) {
             rightPanel.close();
         }
-
+        topToolbar.stop();
         super.stop();
     }
 }

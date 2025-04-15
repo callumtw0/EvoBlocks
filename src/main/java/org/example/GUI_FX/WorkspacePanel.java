@@ -346,6 +346,7 @@ public class WorkspacePanel {
     }
 
     private String capitalize(String str) {
+        if (str.equals("tournamentSize")){return "Tournament Size (percentage)";}
         return str.substring(0, 1).toUpperCase() + str.substring(1).replaceAll("([A-Z])", " $1");
     }
 
@@ -356,9 +357,9 @@ public class WorkspacePanel {
 
         String description = switch (paramName) {
             case "mutationRate" -> "The probability of applying a mutation to an individual in the population.\n- Range: 0.01 to 0.2\n- Lower values mean less frequent mutations, higher values increase diversity but may disrupt good solutions.";
-            case "tournamentSize" -> "The number of individuals competing in a tournament selection.\n- Range: 2 to 7\n- Smaller sizes increase randomness, larger sizes favor fitter individuals.";
+            case "tournamentSize" -> "The percentage of individuals competing in a tournament selection.\n- Range: 2% to 7%\n- Smaller sizes increase randomness, larger sizes favor fitter individuals.";
             case "elitismRate" -> "The fraction of the best individuals to carry over to the next generation unchanged.\n- Range: 0.0 to 0.3\n- Higher values preserve good solutions but may reduce diversity.";
-            case "localSearchProbability" -> "The probability of applying local search to an individual.\n- Range: 0.1 to 1.0\n- Higher values mean more frequent local optimization, improving solutions but increasing computation.";
+            case "localSearchProbability" -> "The probability of applying local search to an individual.\n- Range: 0.1 to 1.0\n- Higher values mean more frequent local optimisation, improving solutions but increasing computation.";
             case "replacementRate" -> "The fraction of the population to replace in each generation for Steady-State Replacement.\n- Range: 0.05 to 0.25\n- Lower values maintain more continuity, higher values introduce more new individuals.";
             case "hybridRatio" -> "The balance between Random Initialisation and Nearest Neighbor Initialisation in Hybrid Initialisation.\n- Range: 0.0 to 1.0\n- 0.0 uses only Random Initialisation, 1.0 uses only Nearest Neighbor, intermediate values blend the two.";
             default -> "No description available.";
@@ -393,6 +394,7 @@ public class WorkspacePanel {
                         for (Node paramChild : paramWrapper.getChildren()) {
                             if (paramChild instanceof Label) {
                                 paramName = ((Label) paramChild).getText().replace(" ", "");
+                                paramName = paramName.replace("(percentage)","");
                             } else if (paramChild instanceof HBox) {
                                 HBox dropdownBox = (HBox) paramChild;
                                 for (Node dropdownChild : dropdownBox.getChildren()) {

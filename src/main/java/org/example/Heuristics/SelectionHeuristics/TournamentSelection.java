@@ -37,9 +37,10 @@ public class TournamentSelection implements SelectionHeuristic {
         this.tournamentSize = 4;
     }
     @Override
-    public ArrayList<Individual> run(ArrayList<Individual> population, int number) {
+    public ArrayList<Individual> run(ArrayList<Individual> population, int percentage) {
         ArrayList<Individual> selected = new ArrayList<>();
         Random random = new Random();
+        int number = (int) (population.size() * (((double) percentage)/100));
 
         for (int i = 0; i < number; i++) {
             ArrayList<Individual> tournament = new ArrayList<>();

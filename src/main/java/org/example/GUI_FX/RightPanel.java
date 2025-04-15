@@ -25,6 +25,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.Map;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -162,6 +163,9 @@ public class RightPanel implements AutoCloseable {
         this.optimalDistance = optimalDistance;
 
         executorService.submit(() -> {
+            if (Thread.currentThread().isInterrupted()) {
+                return; // Exit if interrupted
+            }
             synchronized (distanceSeries) {
                 distanceSeries.add(generation, averageDistance);
                 bestDistanceSeries.add(generation, bestDistance);
@@ -174,30 +178,36 @@ public class RightPanel implements AutoCloseable {
 
             }
             percentageDiffGraph.updateGraph(generation, bestDistance, optimalDistance); // Update percentage difference
-            Platform.runLater(() -> {
-                updateUI();
-                percentageDiffGraph.updateUI();
-            });
+            if (!Thread.currentThread().isInterrupted()) {
+                Platform.runLater(() -> {
+                    updateUI();
+                    percentageDiffGraph.updateUI();
+                });
+            }
         });
     }
 
     public void updateBestTour(Map<Integer, double[]> cityCoordinates, int[] tour) {
         executorService.submit(() -> {
+            if (Thread.currentThread().isInterrupted()) {
+                return;
+            }
             bestTourGraph.updateBestTour(cityCoordinates, tour);
-            Platform.runLater(bestTourGraph::updateUI);
+            if (!Thread.currentThread().isInterrupted()) {
+                Platform.runLater(bestTourGraph::updateUI);
+            }
         });
     }
 
     public void resetGraph() {
-        // Shut down the executorService to prevent new tasks from being submitted
+        // Shut down the executorService to prevent new tasks
         if (executorService != null && !executorService.isShutdown()) {
-            executorService.shutdown();
+            executorService.shutdownNow(); // Immediately interrupt tasks
             try {
                 if (!executorService.awaitTermination(5, TimeUnit.SECONDS)) {
-                    executorService.shutdownNow();
+                    System.err.println("ExecutorService did not terminate within timeout");
                 }
             } catch (InterruptedException e) {
-                executorService.shutdownNow();
                 Thread.currentThread().interrupt();
             }
         }
@@ -219,16 +229,36 @@ public class RightPanel implements AutoCloseable {
         deviationGraph.resetGraph();
         percentageDiffGraph.resetGraph();
 
+        // Recreate the chart to ensure no stale data
+        initializeChart();
+
         // Recreate the executorService for future updates
         executorService = Executors.newFixedThreadPool(2);
 
-        // Force a UI update on the JavaFX thread
-        Platform.runLater(() -> {
+        // Synchronously update the UI on the JavaFX thread
+        if (Platform.isFxApplicationThread()) {
             updateUI();
             bestTourGraph.updateUI();
             deviationGraph.updateUI();
             percentageDiffGraph.updateUI();
-        });
+        } else {
+            CountDownLatch latch = new CountDownLatch(1);
+            Platform.runLater(() -> {
+                try {
+                    updateUI();
+                    bestTourGraph.updateUI();
+                    deviationGraph.updateUI();
+                    percentageDiffGraph.updateUI();
+                } finally {
+                    latch.countDown();
+                }
+            });
+            try {
+                latch.await(2, TimeUnit.SECONDS); // Wait for UI update to complete
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
     }
 
     public void updateUI() {
@@ -386,7 +416,14 @@ public class RightPanel implements AutoCloseable {
     @Override
     public void close() throws Exception {
         if (executorService != null && !executorService.isShutdown()) {
-            executorService.shutdown();
+            executorService.shutdownNow();
+            try {
+                if (!executorService.awaitTermination(5, TimeUnit.SECONDS)) {
+                    System.err.println("ExecutorService did not terminate within timeout");
+                }
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
         }
     }
 

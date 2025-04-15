@@ -176,8 +176,8 @@ public class TopToolbar {
         runButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                rightPanel.resetGraph();
-
+                tester.stop(); // Stop any running task
+                rightPanel.resetGraph(); // Reset graphs
                 List<Map.Entry<Integer, Map<String, Double>>> heuristicsWithParams = workspacePanel.returnHeuristics();
                 List<HeuristicData> selectedHeuristics = new ArrayList<>();
                 List<Map<String, Double>> indexedParams = new ArrayList<>();
@@ -366,7 +366,7 @@ private void populateTspFiles() {
         alert.setTitle("Instructions");
         alert.setHeaderText("How to Use the Application");
         TextArea textArea = new TextArea(
-                "1. Construct a Memetic or Genetic Algorithm by combining heuristics in the workspace panel on the left.\n" +
+                "1. Construct a Memetic or Genetic Algorithm by combining heuristics in the workspace panel on the left. This is done by selecting a category in the bottom left and dragging the chosen heuristic onto the workspace. A description about each can be viewed in the bottom right by clicking on a heuristic image.\n" +
                         "2. Select a .tsp file from the 'TSP File' dropdown to define the Traveling Salesman Problem instance to solve.\n" +
                         "   - Example files include berlin52.tsp (52 cities) and kroA100.tsp (100 cities).\n" +
                         "3. Choose the number of generations from the 'Generations' dropdown.\n" +
@@ -403,18 +403,18 @@ private void populateTspFiles() {
                 "This involves generating a series of potential solutions to the chosen problem via a generation heuristic to form an initial generation. "+
                 "The rest of the heuristic are repeated each time to form a new generation but how they affect the population depends on the position of the selection heuristics."+
                 "A Mutation heuristic performs a random change to a solution to explore more of the solution space. " +
-                "The chance of a mutation being performed on a solution when the heuristic is run is decided by the mutation rate." +
-                "A Local Search heuristic performs iterative changes on the solutions, keeping the changes if it is an improvement and continuing until no improvements can be found. Every time the heuristic is run, there is a 20% chance of it applying to the solution." +
-                "A Selection heuristic selects solutions to act as parents, being used to create a new solution as an offspring." +
-                "A Crossover heuristic generates a new offspring solution from the selected parents by combining the genetic material through different methods." +
-                "Finally, the Replacement heuristic creates a new generation, potentially utilising members of the old generation and the new offspring population." +
-                "\n\n Before a Selection heuristic the Mutation and Local Search heuristics are simply applied to the entire population." +
+                "The chance of a mutation being performed on a solution when the heuristic is run is decided by the mutation rate. " +
+                "A Local Search heuristic performs iterative changes on the solutions, keeping the changes if it is an improvement and continuing until no improvements can be found. Every time the heuristic is run, there is a 20% chance of it applying to the solution. " +
+                "A Selection heuristic selects solutions to act as parents, being used to create a new solution as an offspring. " +
+                "A Crossover heuristic generates a new offspring solution from the selected parents by combining the genetic material through different methods. " +
+                "Finally, the Replacement heuristic creates a new generation, potentially utilising members of the old generation and the new offspring population. " +
+                "\n\n Before a Selection heuristic the Mutation and Local Search heuristics are simply applied to the entire population. " +
                 "The first Selection heuristic starts a loop that creates an offspring population that is the same size as the parent generation so that the replacement can be applied to both. " +
-                "A Selection heuristic must always be paired with (and thus followed by) a crossover heuristic as they work together to generate offspring." +
-                "That first selection heuristic generates two parents and these are combined using the crossover heuristic to create an offspring." +
-                "This offspring is then passed through the following heuristics, so Mutation and Local search are applied only to that offspring." +
+                "A Selection heuristic must always be paired with (and thus followed by) a crossover heuristic as they work together to generate offspring. " +
+                "That first selection heuristic generates two parents and these are combined using the crossover heuristic to create an offspring. " +
+                "This offspring is then passed through the following heuristics, so Mutation and Local search are applied only to that offspring. " +
                 "If another selection heuristic, this would select a single parent from the previous generation to be combined with the candidate offspring in the subsequent Crossover heuristic." +
-                "This loops through this heuristic loop until the Replacement heuristic." +
+                "This loops through this heuristic loop until the Replacement heuristic. " +
                 "\n\n\n The problems the algorithms work to solve are all Travelling Salesman Problems, meaning that they provide a set of cities placed at various coordinates. " +
                 "The algorithm must then find the shortest tour to visit all of the cities exactly once and return to the start. " +
                 "The performance of the generated solution is correlated directly to the distance of the tour (being one over the value). " +
@@ -468,5 +468,9 @@ private void populateTspFiles() {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    public void stop(){
+        tester.stop();
     }
 }

@@ -30,7 +30,6 @@ import java.util.Arrays;
 public class CycleCrossover extends CrossoverHeuristic{
     int populationSize;
     SelectionHeuristic selectionHeuristic;
-    double[][] distanceMatrix;
 
     public CycleCrossover(SelectionHeuristic selectionHeuristic, int populationSize) {
         super(selectionHeuristic, populationSize);
@@ -48,8 +47,8 @@ public class CycleCrossover extends CrossoverHeuristic{
     }
 
     @Override
-    int[] generateOffspring(Individual parent1, Individual parent2){
-        int numCities = parent1.getNumberoOfCities();
+    public int[] generateOffspring(Individual parent1, Individual parent2){
+        int numCities = parent1.getNumberOfCities();
         int[] offspringTour = new int[numCities];
         Arrays.fill(offspringTour, -1); // Mark empty spots
 

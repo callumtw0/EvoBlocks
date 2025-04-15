@@ -9,16 +9,201 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13e2aa5d-a325-4455-8d74-6cf7e5584772" name="Changes" comment="Project updated for release">
+    <list default="true" id="13e2aa5d-a325-4455-8d74-6cf7e5584772" name="Changes" comment="Updated layout and bugfixes">
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Crossover/CycleCrossoverTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Crossover/EdgeRecombinationCrossoverTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Crossover/OrderCrossoverTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Crossover/PartiallyMappedCrossoverTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Initialisation/HybridInitialisationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Initialisation/NearestNeighbourInitialisationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Initialisation/RandomInitialisationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Selection/ElitistSelectionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Selection/RankBasedSelectionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Selection/RouletteWheelSelectionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Selection/StochasticUniversalSamplingTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/Selection/TournamentSelectionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Heursitics/TestUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-console-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-console-l1-2-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-datetime-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-debug-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-errorhandling-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-fibers-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-file-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-file-l1-2-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-file-l2-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-handle-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-heap-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-interlocked-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-libraryloader-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-localization-l1-2-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-memory-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-namedpipe-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-processenvironment-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-processthreads-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-processthreads-l1-1-1.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-profile-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-rtlsupport-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-string-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-synch-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-synch-l1-2-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-sysinfo-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-timezone-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-core-util-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-crt-conio-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-crt-convert-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-crt-environment-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-crt-filesystem-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-crt-heap-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-crt-locale-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-crt-math-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-crt-multibyte-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-crt-private-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-crt-process-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-crt-runtime-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-crt-stdio-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-crt-string-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-crt-time-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/api-ms-win-crt-utility-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/awt.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/decora_sse.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/fontmanager.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/freetype.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/fxplugins.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/glass.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/glib-lite.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/gstreamer-lite.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/java.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/java.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/javafx_font.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/javafx_iio.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/javajpeg.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/javaw.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/jawt.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/jfxmedia.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/jfxwebkit.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/jimage.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/jli.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/jrunscript.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/jsound.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/keytool.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/lcms.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/mlib_image.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/msvcp140.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/msvcp140_1.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/msvcp140_2.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/net.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/nio.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/prefs.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/prism_common.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/prism_d3d.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/prism_sw.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/server/jvm.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/splashscreen.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/syslookup.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/ucrtbase.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/vcruntime140.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/vcruntime140_1.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/verify.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/bin/zip.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/conf/jaxp.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/conf/net.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/conf/security/java.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/conf/security/java.security" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/conf/security/policy/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/conf/security/policy/limited/default_US_export.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/conf/security/policy/limited/default_local.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/conf/security/policy/limited/exempt_local.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/conf/security/policy/unlimited/default_US_export.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/conf/security/policy/unlimited/default_local.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/conf/sound.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/include/classfile_constants.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/include/jawt.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/include/jni.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/include/jvmti.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/include/jvmticmlr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/include/win32/jawt_md.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/include/win32/jni_md.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.base/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.base/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.base/aes.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.base/asm.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.base/c-libutl.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.base/cldr.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.base/icu.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.base/public_suffix.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.base/siphash.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.base/unicode.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.base/wepoll.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.base/zlib.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.datatransfer/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.datatransfer/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.desktop/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.desktop/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.desktop/colorimaging.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.desktop/freetype.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.desktop/giflib.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.desktop/harfbuzz.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.desktop/jpeg.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.desktop/lcms.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.desktop/libpng.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.desktop/mesa3d.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.prefs/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.prefs/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.scripting/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.scripting/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.xml/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.xml/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.xml/bcel.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.xml/dom.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.xml/jcup.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.xml/xalan.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/java.xml/xerces.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/jdk.unsupported/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/legal/jdk.unsupported/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/lib/classlist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/lib/fontconfig.bfc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/lib/fontconfig.properties.src" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/lib/jawt.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/lib/jrt-fs.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/lib/jvm.cfg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/lib/jvm.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/lib/modules" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/lib/psfont.properties.ja" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/lib/psfontj2d.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/lib/security/blocked.certs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/lib/security/cacerts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/lib/security/default.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/lib/security/public_suffix_list.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/lib/tzdb.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/lib/tzmappings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-jre/release" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/RightPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/RightPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/TopToolbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/TopToolbar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/WorkspacePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GUI_FX/WorkspacePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/CrossoverHeuristics/CycleCrossover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/CrossoverHeuristics/CycleCrossover.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/CrossoverHeuristics/EdgeRecombinationCrossover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/CrossoverHeuristics/EdgeRecombinationCrossover.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/CrossoverHeuristics/OrderCrossover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/CrossoverHeuristics/OrderCrossover.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/CrossoverHeuristics/PartiallyMappedCrossover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/CrossoverHeuristics/PartiallyMappedCrossover.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/SelectionHeuristics/TournamentSelection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Heuristics/SelectionHeuristics/TournamentSelection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MemeticAlgorithm/Algorithm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MemeticAlgorithm/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MemeticAlgorithm/Individual.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MemeticAlgorithm/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MemeticAlgorithm/Tester.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -35,32 +220,51 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.MainApp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.RUN.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Maven.EvoBlocks [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Workspace/Java/IntelliJ/EvoBlocks/src/main/resources/Icon&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.runner&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.MainApp.executor": "Run",
+    "Application.RUN.executor": "Debug",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.All in EvoBlocks.executor": "Run",
+    "JUnit.Crossover in EvoBlocks.executor": "Run",
+    "JUnit.CycleCrossoverTest.executor": "Run",
+    "JUnit.EdgeRecombinationCrossoverTest.executor": "Run",
+    "JUnit.ElitistSelectionTest.executor": "Run",
+    "JUnit.Heursitics.Crossover in EvoBlocks.executor": "Run",
+    "JUnit.HybridInitialisationTest.executor": "Run",
+    "JUnit.HybridInitialisationTest.testRunAppliesHybridRatioCorrectly.executor": "Run",
+    "JUnit.NearestNeighbourInitialisationTest.executor": "Run",
+    "JUnit.OrderCrossoverTest.executor": "Run",
+    "JUnit.OrderCrossoverTest.testGenerateOffspringWithIdenticalParents.executor": "Debug",
+    "JUnit.PartiallyMappedCrossoverTest.executor": "Run",
+    "JUnit.RankBasedSelectionTest.executor": "Run",
+    "JUnit.RouletteWheelSelectionTest.executor": "Run",
+    "JUnit.Selection in EvoBlocks.executor": "Run",
+    "JUnit.StochasticUniversalSamplingTest.executor": "Run",
+    "JUnit.TournamentSelectionTest.executor": "Run",
+    "JUnit.TournamentSelectionTest.testRunPrefersHigherFitnessIndividuals.executor": "Run",
+    "JUnit.java in EvoBlocks.executor": "Run",
+    "Maven.EvoBlocks [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Workspace/Java/IntelliJ/EvoBlocks/src/main/resources/Icon",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.runner",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Workspace\Java\IntelliJ\EvoBlocks\src\main\resources\Icon" />
@@ -71,7 +275,7 @@
       <recent name="D:\Workspace\Java\IntelliJ\EvoBlocks\src\main\resources\Icon" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.RUN">
     <configuration name="RUN" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.example.GUI_FX.MainApp" />
       <module name="EvoBlocks" />
@@ -80,6 +284,82 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="All in EvoBlocks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EvoBlocks" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EdgeRecombinationCrossoverTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EvoBlocks" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Heursitics.Crossover.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Heursitics.Crossover" />
+      <option name="MAIN_CLASS_NAME" value="Heursitics.Crossover.EdgeRecombinationCrossoverTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Heursitics.Crossover in EvoBlocks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EvoBlocks" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Heursitics.Crossover.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Heursitics.Crossover" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderCrossoverTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EvoBlocks" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Heursitics.Crossover.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Heursitics.Crossover" />
+      <option name="MAIN_CLASS_NAME" value="Heursitics.Crossover.OrderCrossoverTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PartiallyMappedCrossoverTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EvoBlocks" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Heursitics.Crossover.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Heursitics.Crossover" />
+      <option name="MAIN_CLASS_NAME" value="Heursitics.Crossover.PartiallyMappedCrossoverTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.OrderCrossoverTest" />
+        <item itemvalue="JUnit.EdgeRecombinationCrossoverTest" />
+        <item itemvalue="JUnit.PartiallyMappedCrossoverTest" />
+        <item itemvalue="JUnit.Heursitics.Crossover in EvoBlocks" />
+        <item itemvalue="JUnit.All in EvoBlocks" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -111,7 +391,10 @@
       <workItem from="1744292871174" duration="3786000" />
       <workItem from="1744305339766" duration="424000" />
       <workItem from="1744627637313" duration="1772000" />
-      <workItem from="1744631207698" duration="971000" />
+      <workItem from="1744631207698" duration="1474000" />
+      <workItem from="1744633383694" duration="7450000" />
+      <workItem from="1744660456347" duration="6410000" />
+      <workItem from="1744719502703" duration="5994000" />
     </task>
     <task id="LOCAL-00001" summary="New project for dissertation with maven">
       <option name="closed" value="true" />
@@ -121,7 +404,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742238410364</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Updated layout and bugfixes">
+      <option name="closed" value="true" />
+      <created>1744632952906</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1744632952906</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,6 +420,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="New project for dissertation with maven" />
-    <option name="LAST_COMMIT_MESSAGE" value="New project for dissertation with maven" />
+    <MESSAGE value="Updated layout and bugfixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated layout and bugfixes" />
   </component>
 </project>
