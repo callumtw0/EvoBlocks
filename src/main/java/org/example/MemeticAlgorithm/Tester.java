@@ -64,6 +64,7 @@ public class Tester {
 
     private RightPanel rightPanel;
     private volatile boolean isRunning = false;
+    private volatile boolean isPaused = false;
     private Task<Void> currentTask;// Flag to control thread execution
 
     public Tester(RightPanel rightPanel) {
@@ -147,7 +148,18 @@ public class Tester {
                     heuristicsUsed.append(", ").append(replacement);
 
                     int ranHeuristics;
-                    for (int gen = 0; gen < numGenerations && !isCancelled(); gen++) {
+                    for (int gen = 0; gen < numGenerations && !isCancelled() && isRunning; gen++) {
+                        while (isPaused && !isCancelled() && isRunning) {
+                            synchronized (Tester.this) {
+                                try {
+                                    Tester.this.wait(); // Wait until resumed
+                                } catch (InterruptedException e) {
+                                    Thread.currentThread().interrupt();
+                                    break;
+                                }
+                            }
+                        }
+                        if (isCancelled() || !isRunning) break;
                         ranHeuristics = 0;
                         offspringPopulation = (ArrayList<Individual>) population.clone();
                         int pos = 0;
@@ -402,5 +414,23 @@ public class Tester {
         }
         population.clear(); // Clear population to free memory
         rightPanel.resetGraph(); // Reset graphs to clear pending updates
+    }
+
+    public void pause() {
+        isPaused = true;
+    }
+
+    public void resume() {
+        isPaused = false;
+        synchronized (this) {
+            notifyAll(); // Notify waiting threads
+        }
+    }
+
+    public boolean isPaused() {
+        return isPaused;
+    }
+    public boolean isRunning(){
+        return isRunning;
     }
 }

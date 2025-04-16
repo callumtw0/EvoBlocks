@@ -173,6 +173,18 @@ public class TopToolbar {
         Separator separator2 = new Separator(Orientation.VERTICAL);
         separator2.setStyle("-fx-background-color: #FFFFFF;");
 
+        pausePlayButton.setOnAction(e -> {
+            if (tester.isRunning()) {
+                if (tester.isPaused()) {
+                    tester.resume();
+                    pausePlayButton.setText("Pause");
+                } else {
+                    tester.pause();
+                    pausePlayButton.setText("Resume");
+                }
+            }
+        });
+
         runButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -239,6 +251,7 @@ public class TopToolbar {
                 } catch (IOException e) {
                     showErrorPopup("Error running algorithm: " + e.getMessage());
                 }
+                tester.resume();
             }
         });
 
