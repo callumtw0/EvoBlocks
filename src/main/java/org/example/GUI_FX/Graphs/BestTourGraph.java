@@ -46,7 +46,7 @@ public class BestTourGraph {
 
     public void updateBestTour(Map<Integer, double[]> cityCoordinates, int[] bestTour) {
         this.cityCoordinates = cityCoordinates;
-        this.bestTour = bestTour;
+        this.bestTour = bestTour.clone();
         drawBestTour(bestTourCanvas);
     }
 

@@ -22,6 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 import static org.example.MemeticAlgorithm.TSPUtils.*;
 
@@ -61,6 +63,8 @@ public class Tester {
     MutationHeuristic mutationHeuristic;
     LocalSearchHeuristic localSearchHeuristic;
     ReplacementHeuristic replacementHeuristic;
+
+    ArrayList<Individual> parentpop;
 
     private RightPanel rightPanel;
     private volatile boolean isRunning = false;
@@ -135,18 +139,6 @@ public class Tester {
                     heuristics.removeFirst();
                     heuristicParameters.removeFirst();
                     population = initialisationHeuristic.run(populationSize);
-
-                    // Collect heuristic names for display
-                    StringBuilder heuristicsUsed = new StringBuilder();
-                    for (HeuristicData heuristic : heuristics) {
-                        if (heuristicsUsed.length() > 0) {
-                            heuristicsUsed.append(", ");
-                        }
-                        heuristicsUsed.append(heuristic.getName());
-                    }
-                    heuristicsUsed.insert(0, initialisation + ", ");
-                    heuristicsUsed.append(", ").append(replacement);
-
                     int ranHeuristics;
                     for (int gen = 0; gen < numGenerations && !isCancelled() && isRunning; gen++) {
                         while (isPaused && !isCancelled() && isRunning) {
@@ -161,8 +153,13 @@ public class Tester {
                         }
                         if (isCancelled() || !isRunning) break;
                         ranHeuristics = 0;
-                        offspringPopulation = (ArrayList<Individual>) population.clone();
-                        int pos = 0;
+                        offspringPopulation = new ArrayList<>();
+                        for (Individual ind : population) {
+                            // Deep copy: create a new Individual with a copy of the tour
+                            int[] tourCopy = ind.getTour().clone();
+                            Individual newInd = new Individual(tourCopy, ind.getDistanceMatrix());
+                            offspringPopulation.add(newInd);
+                        }
                         for (HeuristicData heuristic : heuristics){
                             if (Objects.equals(heuristic.getCategory(), "Mutation")) {
                                 String mutation = heuristic.getName().toLowerCase(); // Get the constant value
@@ -311,8 +308,6 @@ public class Tester {
                             }
                             if (isRunning && !isCancelled()) offspringPopulation = newPopulation;
                         }
-                        if (isRunning && !isCancelled()) population = replacementHeuristic.recombine(population, offspringPopulation);
-
                         // Find the best individual (shortest tour) in the population
                         if (isRunning) {
                             if (population.isEmpty()) {
@@ -358,11 +353,22 @@ public class Tester {
                             final double finalAverageDistance = averageDistance; // Effectively final for lambda
                             double finalBestDistance = bestIndividual.getDistance();
                             final double finalWorstDistance = worstIndividual.getDistance(); // Worst distance
+                            // Use a CountDownLatch to wait for UI update
+                            CountDownLatch uiLatch = new CountDownLatch(1);
                             Platform.runLater(() -> {
-                                rightPanel.updateGraph(finalGen, finalAverageDistance, finalBestDistance, finalWorstDistance, optimalDistance);
-                                rightPanel.updateBestTour(cityCoords, bestTour); // Update best tour visualization
-                                rightPanel.updatePerformanceAndDeviation(finalGen, convergenceRate, stdDev);
+                                try {
+                                    rightPanel.updateGraph(finalGen, finalAverageDistance, finalBestDistance, finalWorstDistance, optimalDistance);
+                                    rightPanel.updateBestTour(cityCoords, bestTour); // Update best tour visualization
+                                    rightPanel.updatePerformanceAndDeviation(finalGen, convergenceRate, stdDev);
+                                } finally {
+                                    uiLatch.countDown(); // Signal completion
+                                }
                             });
+                            try {
+                                uiLatch.await(100, TimeUnit.MILLISECONDS); // Wait for UI update, with timeout
+                            } catch (InterruptedException e) {
+                                Thread.currentThread().interrupt();
+                            }
                         }
                         try {
                             Thread.sleep(20); // Maintains UI responsiveness, with interruption handling

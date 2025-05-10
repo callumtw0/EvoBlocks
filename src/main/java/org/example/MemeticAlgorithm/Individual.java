@@ -32,6 +32,9 @@ public class Individual {
     public Individual(int[] tour, double[][] distanceMatrix){
         this.tour = tour.clone();
         this.distanceMatrix = distanceMatrix;
+        if (!isValidTour(tour)) {
+            throw new IllegalArgumentException("Invalid tour: duplicates or missing cities");
+        }
         updateFitness();
     }
 
@@ -41,7 +44,7 @@ public class Individual {
     }
 
     public int[] getTour() {
-        return tour;
+        return tour.clone();
     }
     public int getNumberOfCities(){
         return tour.length;
@@ -58,6 +61,9 @@ public class Individual {
         totalDistance += distanceMatrix[tour[tour.length - 1]][tour[0]];
 
         distance = totalDistance;
+        if (Double.isNaN(distance) || distance <= 0) {
+            throw new IllegalStateException("Invalid distance: " + distance);
+        }
         fitness = 1/totalDistance;
     }
     private boolean isValidTour(int[] tour) {
