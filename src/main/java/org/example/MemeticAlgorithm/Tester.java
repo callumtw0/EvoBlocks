@@ -308,6 +308,7 @@ public class Tester {
                             }
                             if (isRunning && !isCancelled()) offspringPopulation = newPopulation;
                         }
+                        if (isRunning && !isCancelled()) population = replacementHeuristic.recombine(population, offspringPopulation);
                         // Find the best individual (shortest tour) in the population
                         if (isRunning) {
                             if (population.isEmpty()) {
