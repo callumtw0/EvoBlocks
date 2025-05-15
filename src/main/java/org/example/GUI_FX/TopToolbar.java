@@ -177,10 +177,8 @@ public class TopToolbar {
             if (tester.isRunning()) {
                 if (tester.isPaused()) {
                     tester.resume();
-                    pausePlayButton.setText("Pause");
                 } else {
                     tester.pause();
-                    pausePlayButton.setText("Resume");
                 }
             }
         });
